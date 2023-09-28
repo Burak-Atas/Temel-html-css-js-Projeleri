@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        nav{
+            display: flex;
+            padding: 5px;
+            justify-content: space-between;
+            background-color: goldenrod;
+            color: white;
+        }
+
+        nav a{
+            text-decoration: none;
+            font-size: 20px;
+            align-self: center;
+        }
+        nav ul{
+            display: flex;
+            list-style: none;
+        }
+        nav ul a:hover{
+            background-color: gold;
+        }
+        nav ul li a{
+            display: block;
+            padding: 10px;
+            color: white;
+        }
+        nav ul li p{
+            width: 50px;
+            height: 7px;
+            background-color: white;
+            margin-top: 3px;
+        }
+       
+
+        nav ul li:last-child{
+            display: none;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width:1024px) {
+            nav{
+                flex-direction: column;
+            }
+            nav a{
+                align-self: flex-start;
+            }
+
+            nav ul li:last-child{
+                display: block;
+                align-self: flex-end;
+            }
+
+            nav ul li:not(:last-child){
+                display: none;
+            }
+           
+            nav ul{
+                flex-direction: column;
+                text-align: center;
+            gap: 10px;
+            }
+            .mobil-menu{
+                order: -1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="">Burak Ataş</a>
+        <ul class="navigation">
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Product</a></li>
+            <li><a href="">Contact</a></li>
+            <li class="mobil-menu">
+                <p></p>
+                <p></p>
+                <p></p>
+            </li>
+        </ul>
+    </nav>
+  
+    <script>
+        const mbl = document.querySelector('.mobil-menu');
+const navigationItems = document.querySelectorAll('.navigation li:not(:last-child)'); // Tüm gezinme öğelerini seç
+
+mbl.addEventListener('click', function () {
+    navigationItems.forEach(item => {
+        
+        if (item.style.display === "block"){
+            item.style.display = "none"; // Tüm öğeleri "block" yap
+        }else{
+        item.style.display = "block"; // Tüm öğeleri "block" yap
+        item.style.transition = ".4s";
+        }
+    });
+});
+
+    </script>
+    
+    
+</body>
+</html>
